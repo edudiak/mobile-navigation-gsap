@@ -2,10 +2,121 @@
 @import "reset.scss";
 
 html {
-  font: 400 10px/1.33 'Montserrat';
+	font: 400 10px/1.33 'Montserrat';
 }
 
 body {
-  height: 100vh;
-  background-image: linear-gradient(135deg, #8f24ed 30%, #107cb3 100%);
+	background-image: linear-gradient(135deg, #8f24ed 30%, #107cb3 100%);
+}
+
+// menu_wrap
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	height: 100vh;
+	overflow: hidden;
+}
+
+.menu_wrap {
+	position: relative;
+
+	max-width: 32em;
+	width: 100%;
+	height: 56.8em;
+	margin: auto;
+	padding: 1em;
+
+	font-size: 1rem;
+
+	border-radius: 1em;
+	box-shadow: 0 0 0 1.2em rgba(0, 0, 0, 0.1), 0 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1.2em white;
+	background-color: #eaecef;
+	overflow: hidden;
+}
+
+.menu_wrap_trigger {
+	position: absolute;
+	top: 24px;
+	right: 26px;
+	z-index: 1;
+	
+	font-size: 1.6em;
+	font-weight: 900;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+
+	&.close_menu_mod {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+}
+
+.menu_wrap_title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	font-weight: 900;
+	font-size: 3.2em;
+	text-align: center;
+	line-height: (2.8em/3.2);
+	text-transform: uppercase;
+
+	transform: translate(-50%, -50%);
+}
+
+// menu
+.menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+
+	background-color: #fff;
+	opacity: 0;
+
+	pointer-events: none;
+}
+
+.menu_list {
+	margin: auto;
+}
+
+.menu_list_item {
+	margin-bottom: .8em;
+}
+
+.menu_list_link,
+.menu_list_title {
+	display: block;
+
+	font-weight: 900;
+	line-height: 50px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: -1.2px;
+}
+
+.menu_list_link {
+	position: relative;
+
+	font-size: 5em;
+	color: transparent;
+}
+
+.menu_list_title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	font-size: (5em/5);
+	color: #282828;
 }
