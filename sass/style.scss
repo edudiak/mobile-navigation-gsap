@@ -37,8 +37,8 @@ body {
 
 .menu_wrap_trigger {
 	position: absolute;
-	top: 24px;
-	right: 26px;
+	top: (2.4em/1.6);
+	right: (2.6em/1.6);
 	z-index: 1;
 	
 	font-size: 1.6em;
@@ -51,6 +51,30 @@ body {
 	&.close_menu_mod {
 		opacity: 0;
 		pointer-events: none;
+	}
+
+	&:before {
+		position: absolute;
+    bottom: -2px;
+		left: 0;
+		z-index: -1;
+		
+    width: 100%;
+    height: (1.2em/1.6);
+		
+		background-image: linear-gradient(0deg, #ee43bd 0%, #ffd779 100%);
+		
+		transform: translateX(-.7rem);
+		will-change: transform;
+		content: "";
+		
+    transition: all 0.2s ease;
+	}
+
+	&:hover {
+		&:before {
+			transform: translateX(0);
+		}
 	}
 
 }
