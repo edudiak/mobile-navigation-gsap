@@ -1,0 +1,11 @@
+@import "fonts.scss";
+@import "reset.scss";
+
+html {
+  font: 400 10px/1.33 'Montserrat';
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(135deg, #8f24ed 30%, #107cb3 100%);
+}
