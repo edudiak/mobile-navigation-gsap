@@ -108,6 +108,14 @@ body {
 	opacity: 0;
 
 	pointer-events: none;
+
+	transition: opacity .3s ease;
+
+	&.active_mod {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
 }
 
 .menu_list {
@@ -143,4 +151,6 @@ body {
 	
 	font-size: (5em/5);
 	color: #282828;
+
+	will-change: transform;
 }

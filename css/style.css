@@ -204,7 +204,11 @@ body {
   height: 100%;
   background-color: #fff;
   opacity: 0;
-  pointer-events: none; }
+  pointer-events: none;
+  transition: opacity .3s ease; }
+  .menu.active_mod {
+    opacity: 1;
+    pointer-events: auto; }
 
 .menu_list {
   margin: auto; }
@@ -231,4 +235,5 @@ body {
   top: 0;
   left: 0;
   font-size: 1em;
-  color: #282828; }
+  color: #282828;
+  will-change: transform; }
