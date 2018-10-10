@@ -1,6 +1,11 @@
 @import "fonts.scss";
 @import "reset.scss";
 
+@mixin d3() {
+	will-change: transform;
+	transform: translateZ(0);
+}
+
 html {
 	font: 400 10px/1.33 'Montserrat';
 }
@@ -49,6 +54,7 @@ body {
 	cursor: pointer;
 
 	transition: all .3s ease;
+	will-change: transform;
 
 	&.close_menu_mod {
 		opacity: 0;
@@ -130,33 +136,30 @@ body {
 	margin-bottom: .8em;
 }
 
-.menu_list_link,
-.menu_list_title {
-	display: block;
-
-	font-weight: 900;
-	line-height: 50px;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: -1.2px;
-}
-
 .menu_list_link {
 	position: relative;
 
+	display: block;
+
 	font-size: 5em;
 	color: transparent;
+	font-weight: 900;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: -1.2px;
 }
 
 .menu_list_title {
 	position: absolute;
 	top: 0;
 	left: 0;
+
+	width: 100%;
+	height: 100%;
 	
-	font-size: (5em/5);
 	color: #282828;
 
-	will-change: transform;
+	@include d3();
 }
 
 .menu_w_decor {
@@ -200,6 +203,8 @@ body {
 	opacity: 0;
 
 	background-color: #fff;
+
+	@include d3();
 
 	&:before {
 		position: absolute;

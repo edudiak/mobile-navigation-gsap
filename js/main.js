@@ -23,9 +23,9 @@ var menuAnimFunc = () => {
 		.set(mainMenu, {className: '+=active_mod'})
 		.set(menuDecorLine, {transformOrigin: "100% 100%"})
 		.fromTo(menuDecorLine, 0.25, {
-			x: "-100%",
+			xPercent: -100,
 		}, {
-			x: "0%",
+			xPercent: 0,
 			opacity: 1,
 			ease: Power1.easeOut
 		})
@@ -51,7 +51,5 @@ var menuAnimFunc = () => {
 			menuTl.reverse();
 		}
 	});
-
-	
 
 };
