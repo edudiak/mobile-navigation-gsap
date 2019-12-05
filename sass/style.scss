@@ -40,7 +40,7 @@ body {
 	overflow: hidden;
 }
 
-.menu_wrap_trigger {
+.menu_trigger {
 	position: absolute;
 	top: (2.4em/1.6);
 	right: (2.6em/1.6);
@@ -137,27 +137,14 @@ body {
 }
 
 .menu_list_link {
-	position: relative;
-
 	display: block;
 
 	font-size: 5em;
-	color: transparent;
+	color: #282828;
 	font-weight: 900;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: -1.2px;
-}
-
-.menu_list_title {
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	width: 100%;
-	height: 100%;
-	
-	color: #282828;
 
 	@include d3();
 }
@@ -167,7 +154,7 @@ body {
 	top: 0;
 	left: 0;
 
-	display: flex;
+	display: flex;	
 	flex-direction: row;
 	width: 100%;
 	height: 100%;
