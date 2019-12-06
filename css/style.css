@@ -142,18 +142,23 @@ body {
   height: 100vh;
   overflow: hidden; }
 
-.menu_wrap {
+.base {
   position: relative;
-  max-width: 32em;
+  display: flex;
+  flex-direction: row;
+  max-width: 37.5em;
   width: 100%;
-  height: 56.8em;
+  height: 66.7em;
   margin: auto;
-  padding: 1em;
+  padding: 2em;
   font-size: 1rem;
   border-radius: 1em;
   box-shadow: 0 0 0 1.2em rgba(0, 0, 0, 0.1), 0 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1.2em white;
   background-color: #eaecef;
   overflow: hidden; }
+  @media screen and (max-width: 374px) {
+    .base {
+      font-size: .8rem; } }
 
 .menu_trigger {
   position: absolute;
@@ -165,7 +170,6 @@ body {
   letter-spacing: -1px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .3s ease;
   will-change: transform; }
   .menu_trigger.close_menu_mod {
     opacity: 0;
@@ -183,19 +187,17 @@ body {
     will-change: transform;
     content: "";
     transition: all 0.2s ease; }
-  .menu_trigger:hover:before {
+  .menu_trigger:hover:before, .menu_trigger:focus:before {
     transform: translateX(0); }
 
-.menu_wrap_title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.title {
+  margin: auto;
+  max-width: 100%;
   font-weight: 900;
-  font-size: 3.2em;
+  font-size: 4em;
   text-align: center;
   line-height: 0.875em;
-  text-transform: uppercase;
-  transform: translate(-50%, -50%); }
+  text-transform: uppercase; }
 
 .menu {
   position: absolute;
@@ -206,15 +208,16 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding: 2em;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease; }
+  pointer-events: none; }
   .menu.active_mod {
     opacity: 1;
     pointer-events: auto; }
 
 .menu_list {
-  margin: auto; }
+  margin: auto;
+  width: 100%; }
 
 .menu_list_item {
   margin-bottom: .8em; }
@@ -227,8 +230,11 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -1.2px;
+  transition: color .3s ease;
   will-change: transform;
   transform: translateZ(0); }
+  .menu_list_link:hover, .menu_list_link:focus {
+    color: #8e24ec; }
 
 .menu_w_decor {
   position: absolute;
@@ -237,7 +243,9 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  border-radius: 1em;
+  overflow: hidden; }
 
 .menu_decor_w_line {
   height: 100%;

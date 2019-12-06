@@ -1,35 +1,38 @@
-var btnOpenMenu,
-		mainMenu,
-		mainMenuItem,
-		btnCloseMenu,
-		menuDecorLine,
+let $btnOpenMenu,
+		$mainMenu,
+		$mainMenuItem,
+		$btnCloseMenu,
+		$menuDecorLine,
 		menuTl;
 
 $(document).ready(function ($) {
-	btnOpenMenu = $('.btnOpenMenu');
-	btnCloseMenu = $('.btnCloseMenu');
-	mainMenu = $('.mainMenu');
-	mainMenuTitle = $('.menu_list_title');
-	menuDecorLine = $('.menu_decor_line');
-	menuTl = new TimelineMax({paused: true});
+	$btnOpenMenu = $('.btnOpenMenu');
+	$btnCloseMenu = $('.btnCloseMenu');
+	$mainMenu = $('.mainMenu');
+	$mainMenuTitle = $('.menu_list_link');
+	$menuDecorLine = $('.menu_decor_line');
+	menuTl = gsap.timeline({paused: true});
 });
 
 $(window).on('load', function () {
 	menuAnimFunc();
 });
 
-var menuAnimFunc = () => {
+const menuAnimFunc = () => {
 	menuTl
-		.set(mainMenu, {className: '+=active_mod'})
-		.set(menuDecorLine, {transformOrigin: "100% 100%"})
-		.fromTo(menuDecorLine, 0.25, {
+		.set($mainMenu, {
+			opacity: 1,
+			pointerEvents: "auto"
+		})
+		.set($menuDecorLine, {transformOrigin: "100% 100%"})
+		.fromTo($menuDecorLine, 0.25, {
 			xPercent: -100,
 		}, {
 			xPercent: 0,
 			opacity: 1,
 			ease: Power1.easeOut
 		})
-		.staggerFromTo(mainMenuTitle, .3, {
+		.staggerFromTo($mainMenuTitle, .3, {
 			x: -50,
 			opacity: 0,
 			ease: Back.easeOut.config(1)
@@ -37,16 +40,19 @@ var menuAnimFunc = () => {
 			x: 0,
 			opacity: 1
 		}, .2)
-		.set(btnCloseMenu, {className: '-=close_menu_mod'})
+		.to($btnCloseMenu, .1, {
+			opacity: 1,
+			pointerEvents: "auto",
+			translateX: 0
+		})
 
-
-	btnOpenMenu.on('click', () => {
+	$btnOpenMenu.on('click', () => {
 		if(!menuTl.isActive()) {
 			menuTl.play();
 		}
 	});
 
-	btnCloseMenu.on('click', () => {
+	$btnCloseMenu.on('click', () => {
 		if(!menuTl.isActive()) {
 			menuTl.reverse();
 		}
